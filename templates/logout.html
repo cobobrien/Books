@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Logged Out
+{% endblock %}
+
+{% block body %}
+    <h1>Logged Out</h1>
+
+<p>You've logged out. Please click <a href="{{ url_for('login') }}">here</a> to log back in</p>
+{% endblock %}

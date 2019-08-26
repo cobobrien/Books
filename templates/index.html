@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    <div id="logout">
+        <a href="{{ url_for('logout') }}"><button type="button" class="btn btn-outline-dark mr-4 mt-3">Logout</button></a>
+    </div>
+
+   <div class="text-center mx-auto">
+        <h1>Books
+          <small class="text-muted">Search our database</small>
+        </h1>
+        <img id="book_img" src="../static/books.jpg" alt="" class="img-rounded img-fluid img-responsive">
+   </div>
+{% endblock %}
+
+{% block body %}
+
+    {% if message is not none%}
+        <div class="alert alert-primary" role="alert">
+                     {{message}}
+        </div>
+    {% endif %}
+
+        <form class="form-inline mx-auto" action="{{ url_for('index') }}" method="post">
+            <div class="container mx-auto">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input class="form-control ml-1 w-75" type="text" name="search" placeholder="Search for a book here"
+                    aria-label="Search">
+            </div>
+        </form>
+
+
+
+        <ul class="list-group list-group-flush">
+            {% for book in books %}
+                <li
+                    class="list-group-item">
+                        <a href="{{ url_for('book', isbn=book.isbn) }}">
+                            {{ book.title }} by {{ book.author }}
+                        </a>
+                </li>
+            {% else %}
+              <div class="alert alert-secondary" role="alert">
+                  No books match your search!
+              </div>
+            {% endfor %}
+        </ul>
+
+
+
+{% endblock %}
