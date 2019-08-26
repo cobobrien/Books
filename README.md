@@ -1,7 +1,7 @@
 # Books
 Book review Flask application - Integrated with Goodeads API and an exposed REST endpoint
 
-###### Features
+## Features
 
 * Postgres Backend
 * Challenge here was not to use ORM for the server-database communication. Just raw SQL
